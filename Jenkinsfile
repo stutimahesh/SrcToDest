@@ -19,17 +19,18 @@ pipeline{
 	 	steps{
 	 		sh 'mvn test'
 	 	}
-	 }stage('Run'){
+	 }
+	 stage('Run'){
 	 	steps{
-	 		sh 'mvn exec:java -Dexec.mainClass="com.example.App'
+	 		sh 'mvn exec:java -Dexec.mainClass=com.example.App'
 	 	}
 	 }
 	}
 	post{
-		success{
-			echo 'Build and Deploy success'
-		}failure{
-			echo 'Build fail'
-		}
+	  success{
+		echo 'Build and Deploy success'
+	}failure{
+		echo 'Build fail'
+	}
 	}
 }
